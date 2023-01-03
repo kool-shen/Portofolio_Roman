@@ -1,0 +1,30 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100px;
+  flex-direction: column;
+}
+
+.text {
+  font-family: "FreeSansBold";
+  /*animation: fadeIn 3.5s;*/
+  font-size: 70px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

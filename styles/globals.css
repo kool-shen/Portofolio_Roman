@@ -1,12 +1,19 @@
 @font-face {
   font-family: "FreeSans";
-  src: local("FreeSans"), url("../Fonts/FreeSans.otf") format("truetype");
+  src: local("FreeSans"),
+    url("../Fonts/FreeSans/FreeSans.otf") format("truetype");
 }
 
 @font-face {
   font-family: "FreeSansBold";
   src: local("FreeSansBold"),
-    url("../Fonts/FreeSansBold.otf") format("truetype");
+    url("../Fonts/FreeSans/FreeSansBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Brygada1918";
+  src: local("Brygada1918"),
+    url("../Fonts/Brygada/Brygada1918-VariableFont_wght.ttf") format("truetype");
 }
 
 body {

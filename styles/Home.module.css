@@ -9,6 +9,8 @@
   position: fixed;
   padding: 0px;
   margin: 0px;
+  cursor: url(../public/cross.png), auto;
+  background-color: #eeefea;
 }
 
 .romanContainer {
@@ -20,6 +22,41 @@
   min-width: 20px;
   padding-left: 10px;
   z-index: 44;
+}
+
+.rightDescriptionContainer {
+  position: fixed;
+  width: 30%;
+  height: 10%;
+
+  top: 25%;
+  left: 52%;
+}
+
+.rightDescriptionContainerHidden {
+  position: fixed;
+  width: 30%;
+  height: 10%;
+  opacity: 0;
+  top: 25%;
+  left: 52%;
+}
+
+.leftDescriptionContainer {
+  position: fixed;
+  width: 30%;
+  height: 10%;
+  top: 25%;
+  right: 52%;
+}
+
+.leftDescriptionContainerHidden {
+  position: fixed;
+  width: 30%;
+  height: 10%;
+  top: 25%;
+  right: 52%;
+  opacity: 0;
 }
 
 .aboutContainer {
@@ -47,6 +84,7 @@
   grid-row-start: 4;
   grid-row-end: 6;
   transform: rotate(90deg) translateX(26%) translateY(-4px);
+
   min-height: 50px;
 }
 
@@ -66,13 +104,15 @@
   grid-column-end: 13;
   grid-row-start: 1;
   grid-row-end: 13;
-  padding-left: 150px;
-  padding-right: 190px;
+  padding-top: 20px;
+  padding-left: 100px;
+  padding-right: 150px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   overflow-y: hidden;
   overflow: scroll;
+  gap: 2vmax;
 }
 
 .hidden {
@@ -84,7 +124,18 @@
   width: auto;
   max-width: 600px;
   max-height: 600px;
-  padding: 10px;
+  padding: 5px;
+  background-color: #ebe9e3;
+  /*animation: fadeIn 0.1s;*/
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .hiddenPic {
@@ -92,50 +143,31 @@
   width: auto;
   max-width: 600px;
   max-height: 600px;
-  padding: 10px;
+  padding: 5px;
   opacity: 0;
+  /*animation: fadeOut 0.1s;*/
 }
 
-.pic1 {
-  height: auto;
-  width: auto;
-  max-width: 500px;
-  max-height: 500px;
-  padding: 10px;
-}
-
-.pic2 {
-  height: auto;
-  width: auto;
-  max-width: 500px;
-  max-height: 500px;
-  padding: 10px;
-}
-
-.pic1:hover ~ .pic {
-  opacity: 0;
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.8;
+  }
 }
 
 /* TEXT */
 
 .text {
   font-family: "FreeSansBold";
+  cursor: url(../public/cross2.svg), auto;
+  color: black;
+  text-decoration: none;
 }
 
 .hiddenText {
   font-family: "FreeSansBold";
-  opacity: 1;
-}
-
-.topTitle {
-  font-family: "FreeSansBold";
-}
-
-.description {
-  font-family: "FreeSansBold";
-}
-
-.hiddenDescription {
   opacity: 0;
 }
 
@@ -144,16 +176,5 @@
 }
 
 .bottomTitle {
-  font-family: "FreeSansBold";
-}
-
-.personal {
-  font-family: "FreeSansBold";
-}
-
-.commissioned {
-  font-family: "FreeSansBold";
-}
-.index {
   font-family: "FreeSansBold";
 }

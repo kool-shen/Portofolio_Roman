@@ -1,104 +1,88 @@
 import styles from "../styles/Home.module.css";
-import { useState } from "react";
-
-import React from "react";
+import Images from "../components/Image";
+import Loader from "./Loader";
+import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 function Homepage() {
-  //// map Image ///
+  const hoveredImage = useSelector((state) => state.hoverDisplay.value.image);
+  const hoveredCollection = useSelector(
+    (state) => state.hoverDisplay.value.collection
+  );
+  const hoveredDescription = useSelector(
+    (state) => state.hoverDisplay.value.description
+  );
 
-  const Image = () => {
-    const [hover, setHover] = useState("");
-    const imagesData = [
-      {
-        collection: "Commissioned",
-        src: "/7AR00055.jpg",
-        description: "Yes",
-      },
-      {
-        collection: "Personal",
-        src: "/L1120930.jpg",
-        description: "No",
-      },
-      {
-        collection: "Commissioned",
-        src: "/7AR09801.jpg",
-        description: "Why",
-      },
+  const [loader, setLoader] = useState(true);
 
-      {
-        collection: "Commissioned",
-        src: "/L1120710.jpg",
-        description: "Nope",
-      },
-    ];
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 3000);
+  }, []);
 
-    /*function handleClick(e) {
-      console.dir(e.target);
-    }*/
-
-    return (
-      <>
-        {imagesData.map((data, i) => (
-          <div>
-            <img
-              key={i}
-              onMouseEnter={() => setHover(i)}
-              onMouseLeave={() => setHover("")}
-              onClick={(e) => handleClick(e)}
-              src={data.src}
-              description={data.description}
-              collection={data.collection}
-              className={
-                hover === "" || hover === i ? styles.pic : styles.hiddenPic
-              }
-            />
-            <p
-              className={
-                hover === "" || hover !== i
-                  ? styles.hiddenDescription
-                  : styles.description
-              }
-            >
-              {" "}
-              {data.description}
-            </p>
-          </div>
-        ))}
-      </>
-    );
-  };
-
-  return (
+  return loader ? (
+    <Loader />
+  ) : (
     <>
       <div className={styles.mainContainer}>
         <div className={styles.romanContainer}>
-          <div className={styles.topTitle}>
+          <div className={styles.text}>
             Roman <span className={styles.cadreDecale}>Cadre</span>
           </div>
         </div>
 
         <div className={styles.aboutContainer}>
-          <div className={styles.text}>
-            <div>ABOUT</div>
+          <div>
+            <Link
+              className={hoveredImage === "" ? styles.text : styles.hiddenText}
+              href="/about"
+            >
+              ABOUT
+            </Link>
           </div>
         </div>
         <div className={styles.personalContainer}>
-          <div className={styles.text}>
+          <div
+            className={
+              hoveredCollection === "" || hoveredCollection === "Personal"
+                ? styles.text
+                : styles.hiddenText
+            }
+          >
             <div>PERSONAL</div>
           </div>
         </div>
         <div className={styles.commissionedContainer}>
-          <div className={styles.text}>
+          <div
+            className={
+              hoveredCollection === "" || hoveredCollection === "Commissioned"
+                ? styles.text
+                : styles.hiddenText
+            }
+          >
             <div>COMMISSIONED</div>
           </div>
         </div>
         <div className={styles.indexContainer}>
-          <div className={styles.text}>
+          <div
+            className={hoveredImage === "" ? styles.text : styles.hiddenText}
+          >
             <div>INDEX</div>
           </div>
         </div>
+        <div
+          className={
+            hoveredImage % 2 == 0
+              ? styles.rightDescriptionContainer
+              : styles.leftDescriptionContainer
+          }
+        >
+          <div className={styles.text}>{hoveredDescription}</div>
+        </div>
         <div className={styles.contentContainer}>
-          <Image />
+          <Images />
         </div>
       </div>
     </>
