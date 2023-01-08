@@ -2,14 +2,18 @@ import styles from "../styles/Images.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import { display } from "../reducers/hoverDisplay";
+import { generate, target } from "../reducers/albumGenerator";
+
 import { lazy } from "react";
 
 const Images = () => {
   const dispatch = useDispatch();
-  const hoveredImage = useSelector((state) => state.hoverDisplay.value.image);
+  //const hoveredImage = useSelector((state) => state.hoverDisplay.value.image);
   const hoveredCollection = useSelector(
     (state) => state.hoverDisplay.value.collection
   );
+
+  const albumData = useSelector((state) => state.albumGenerator.value);
 
   const imagesData = [
     {
@@ -177,6 +181,15 @@ const Images = () => {
     dispatch(display(i));
   };
 
+  const sendAlbumData = (i) => {
+    dispatch(generate(i));
+    console.log(albumData);
+  };
+
+  /*const sendClickedElement = (i) => {
+    dispatch(target(i));
+  };*/
+
   return (
     <>
       {imagesData.map((data, i) => (
@@ -194,6 +207,16 @@ const Images = () => {
             onMouseLeave={() =>
               hover({ image: "", collection: "", description: "", year: "" })
             }
+            onClick={() => {
+              // voir la photo qui est cliquée //
+              console.log(data);
+              /// Envoie le tableau avec toute la collection
+              const keyword = data.collection;
+              const searchResult = imagesData.filter(
+                (word) => word.collection.indexOf(keyword) > -1
+              );
+              sendAlbumData(searchResult);
+            }}
             src={data.src}
             description={data.description}
             collection={data.collection}

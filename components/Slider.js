@@ -41,9 +41,21 @@ export default function Slider() {
     margin: "0 auto",
   };
 
-  function Slider({ slides }) {
-    const [currentIndex, setcurrentIndex] = useState(0);
+  const [currentIndex, setcurrentIndex] = useState(0);
 
+  function goToPrevious() {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    setcurrentIndex(newIndex);
+  }
+
+  function goToNext() {
+    const isLastSlide = currentIndex === slides.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setcurrentIndex(newIndex);
+  }
+
+  function Slider({ slides }) {
     //// STYLES //////
 
     const slideStyles = {
@@ -76,27 +88,8 @@ export default function Slider() {
 
     //// ONCLICK FUNCTIONS ////
 
-    function goToPrevious() {
-      const isFirstSlide = currentIndex === 0;
-      const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-      setcurrentIndex(newIndex);
-    }
-
-    function goToNext() {
-      const isLastSlide = currentIndex === slides.length - 1;
-      const newIndex = isLastSlide ? 0 : currentIndex + 1;
-      setcurrentIndex(newIndex);
-    }
-
     return (
       <div className={styles.sliderStyles}>
-        <div style={leftArrowStyle} onClick={goToPrevious}>
-          {"<"}
-        </div>
-        <div style={rightArrowStyle} onClick={goToNext}>
-          {">"}
-        </div>
-
         <div style={slideStyles}></div>
         <div className={styles.counter}>
           {" "}
@@ -107,7 +100,10 @@ export default function Slider() {
   }
 
   return (
-    <div>
+    <div className={styles.mainContainer}>
+      <div className={styles.previousContainer} onClick={goToPrevious}></div>
+      <div className={styles.nextContainer} onClick={goToNext}></div>
+
       <div style={containerStyle}>
         <Slider slides={slides} />
       </div>

@@ -3,9 +3,10 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import hoverDisplay from "../reducers/hoverDisplay";
+import albumGenerator from "../reducers/albumGenerator";
 
 const store = configureStore({
-  reducer: { hoverDisplay },
+  reducer: { hoverDisplay, albumGenerator },
 });
 
 function MyApp({ Component, pageProps }) {

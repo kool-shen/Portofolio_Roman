@@ -10,7 +10,7 @@ export const hoverSlice = createSlice({
   initialState,
   reducers: {
     display: (state, action) => {
-      console.log(state.value.year);
+      //console.log(state.value.image);
       state.value.image = action.payload.image;
       state.value.collection = action.payload.collection;
       state.value.description = action.payload.description;
