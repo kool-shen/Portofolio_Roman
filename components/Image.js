@@ -182,14 +182,13 @@ const Images = () => {
 
   const sendAlbumData = (i) => {
     dispatch(generate(i));
-    console.log(albumData);
   };
 
   return (
     <>
       {imagesData.map((data, i) => (
         <div className={styles.picContainer}>
-          <Link href="slider">
+          <Link href="/slider">
             <img
               key={i}
               onMouseEnter={() =>
@@ -205,13 +204,14 @@ const Images = () => {
               }
               onClick={() => {
                 // voir la photo qui est cliquée //
-                console.log(data);
+                //console.log(data);
                 /// Envoie le tableau avec toute la collection
                 const keyword = data.collection;
                 const searchResult = imagesData.filter(
                   (word) => word.collection.indexOf(keyword) > -1
                 );
                 sendAlbumData(searchResult);
+                console.log(albumData);
               }}
               src={data.src}
               description={data.description}

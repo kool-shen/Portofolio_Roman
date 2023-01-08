@@ -15,9 +15,7 @@ function Album() {
   );
 
   /// value du reducer AlbumGenerator ////
-  const albumTitle = useSelector(
-    (state) => state.albumGenerator.value[0].collection
-  );
+  const albumTitle = useSelector((state) => state.albumGenerator.value);
 
   ////
 
@@ -37,7 +35,7 @@ function Album() {
         </div>
       </div>
       <div className={styles.rightContainer}>
-        <div className={styles.about}>{albumTitle}</div>
+        <div className={styles.about}>{albumTitle[0].collection}</div>
       </div>
       <div className={styles.contentContainer}>
         <AutoImages />
