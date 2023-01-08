@@ -1,10 +1,10 @@
-import styles from "../styles/Images.module.css";
+import styles from "../styles/AutoImages.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { display } from "../reducers/hoverDisplay";
 import { generate } from "../reducers/albumGenerator";
 import Link from "next/link";
 
-const Images = () => {
+const AutoImages = () => {
   const dispatch = useDispatch();
   //const hoveredImage = useSelector((state) => state.hoverDisplay.value.image);
   const hoveredCollection = useSelector(
@@ -13,7 +13,6 @@ const Images = () => {
 
   /// value du reducer AlbumGenerator ////
   const albumData = useSelector((state) => state.albumGenerator.value);
-  ////
 
   const imagesData = [
     {
@@ -187,7 +186,7 @@ const Images = () => {
 
   return (
     <>
-      {imagesData.map((data, i) => (
+      {albumData.map((data, i) => (
         <div className={styles.picContainer}>
           <Link href="slider">
             <img
@@ -225,4 +224,4 @@ const Images = () => {
   );
 };
 
-export default Images;
+export default AutoImages;

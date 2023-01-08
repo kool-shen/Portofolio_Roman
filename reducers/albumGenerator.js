@@ -12,11 +12,11 @@ export const albumSlice = createSlice({
     generate: (state, action) => {
       state.value.push(...action.payload);
     },
-    target: (state, action) => {
-      state.value.unshift(action.payload);
+    clear: (state, action) => {
+      state.value = [];
     },
   },
 });
 
-export const { generate, target } = albumSlice.actions;
+export const { generate, clear } = albumSlice.actions;
 export default albumSlice.reducer;

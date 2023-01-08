@@ -1,8 +1,6 @@
 import styles from "../styles/Content.module.css";
 import Images from "../components/Image";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { display } from "../reducers/hoverDisplay";
 
 import React from "react";
 
