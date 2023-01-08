@@ -25,7 +25,7 @@ function Content() {
         </div>
       </div>
       <div className={styles.rightContainer}>
-        <div className={styles.about}>ABOUT</div>
+        <div className={styles.about}>À PROPOS</div>
         <div className={styles.year}>{hoveredYear}</div>
         <div className={styles.index}>INDEX</div>
       </div>
