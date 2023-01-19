@@ -213,6 +213,13 @@ const Images = (props) => {
             <div className={styles.albumNameText}>{hoveredCollection}</div>
           </div>
           <>
+            <div
+              className={
+                hovered === "" || hovered === i
+                  ? styles.whiteDot
+                  : styles.whiteDotHidden
+              }
+            ></div>
             <img
               key={i}
               onMouseEnter={() =>
@@ -236,6 +243,7 @@ const Images = (props) => {
                 const searchResult = imagesData.filter(
                   (word) => word.collection.indexOf(keyword) > -1
                 );
+
                 sendAlbumData(searchResult);
                 //console.log(albumData);
                 {

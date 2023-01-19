@@ -18,12 +18,21 @@ export default function Slide() {
   /// value du reducer AlbumGenerator ////
 
   const albumData = useSelector((state) => state.albumGenerator.value);
+
+  let filteredImagesData = albumData.filter((image) => {
+    let twinImage = albumData.find((img) => img.twin === image.src);
+    if (twinImage) {
+      return false;
+    }
+    return true;
+  });
+
   const [currentIndex, setcurrentIndex] = useState(hovered.image);
 
   /// focntions Next & Previous ///
 
   function goToNext() {
-    const isLastSlide = currentIndex === albumData.length - 1;
+    const isLastSlide = currentIndex === filteredImagesData.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setcurrentIndex(newIndex);
     console.log(currentIndex, index);
@@ -31,7 +40,9 @@ export default function Slide() {
 
   function goToPrevious() {
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? albumData.length - 1 : currentIndex - 1;
+    const newIndex = isFirstSlide
+      ? filteredImagesData.length - 1
+      : currentIndex - 1;
     setcurrentIndex(newIndex);
     console.log(currentIndex, index);
   }
@@ -40,12 +51,12 @@ export default function Slide() {
     dispatch(getIndexInfo(currentIndex + 1));
   };*/
 
-  let twinExists = albumData[currentIndex].hasOwnProperty("twin");
+  let twinExists = filteredImagesData[currentIndex].hasOwnProperty("twin");
 
   return (
     <>
       <div className={styles.index}>
-        {currentIndex + 1}/ {albumData.length}
+        {currentIndex + 1}/ {filteredImagesData.length}
       </div>
       <div className={styles.mainContainer}>
         <div
@@ -63,7 +74,10 @@ export default function Slide() {
           }}
         ></div>
         <div className={styles.firstPicContainer}>
-          <img src={albumData[currentIndex].src} className={styles.firstPic} />
+          <img
+            src={filteredImagesData[currentIndex].src}
+            className={styles.firstPic}
+          />
         </div>
         <div
           className={
@@ -73,7 +87,7 @@ export default function Slide() {
           }
         >
           <img
-            src={albumData[currentIndex].twin}
+            src={filteredImagesData[currentIndex].twin}
             className={styles.secondPic}
           />
         </div>

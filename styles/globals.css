@@ -16,6 +16,18 @@
     url("../Fonts/Brygada/Brygada1918-VariableFont_wght.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "FreesansOblique";
+  src: local("FreesansOblique"),
+    url("../Fonts/FreeSans/FreeSansOblique.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "FreesansObliqueBold";
+  src: local("FreesansObliqueBold"),
+    url("../Fonts/FreeSans/FreeSansBoldOblique.ttf") format("truetype");
+}
+
 body {
   margin: 0px;
   overflow: overlay;
