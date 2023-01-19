@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import styles from "../styles/Slider.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { generate } from "../reducers/albumGenerator";
-
-import Link from "next/link";
+import { isClicked } from "../reducers/imageFocus";
+import { clear } from "../reducers/albumGenerator";
 
 export default function Slider() {
   const albumData = useSelector((state) => state.albumGenerator.value);
+
+  // fonction pour revenir à l'album
+
+  const backToAlbum = () => {
+    dispatch(isClicked(true));
+  };
 
   const containerStyle = {
     width: "500px",
@@ -55,21 +60,16 @@ export default function Slider() {
     return (
       <div className={styles.sliderStyles}>
         <div className={styles.titleContainer}>
-          <Link
-            href="/"
-            style={removeLinkStyle}
+          <div
             onClick={() => {
               clearCollection();
             }}
           >
             <div className={styles.title}>RETOUR</div>
-          </Link>
+          </div>
           <div className={styles.counter}>
             {currentIndex + 1}/ {albumData.length}
           </div>
-          <Link href="/album" style={removeLinkStyle}>
-            <div className={styles.title}>ALBUM</div>
-          </Link>
         </div>
         <div style={slideStyles}></div>
       </div>

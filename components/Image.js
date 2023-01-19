@@ -3,16 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { display } from "../reducers/hoverDisplay";
 import { generate } from "../reducers/albumGenerator";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const Images = () => {
+const Images = (props) => {
   const dispatch = useDispatch();
   //const hoveredImage = useSelector((state) => state.hoverDisplay.value.image);
   const hoveredCollection = useSelector(
     (state) => state.hoverDisplay.value.collection
   );
+  const hovered = useSelector((state) => state.hoverDisplay.value.image);
 
   /// value du reducer AlbumGenerator ////
   const albumData = useSelector((state) => state.albumGenerator.value);
+
   ////
 
   const imagesData = [
@@ -21,6 +24,7 @@ const Images = () => {
       src: "/L1120710.jpg",
       description: "Yes",
       year: 2021,
+      twin: "/7AR00055.jpg",
     },
     {
       collection: "Commissioned",
@@ -34,6 +38,7 @@ const Images = () => {
       src: "/L1120930.jpg",
       description: "No",
       year: 2019,
+      twin: "/L1120571.jpg",
     },
     {
       collection: "Personal",
@@ -94,6 +99,7 @@ const Images = () => {
       collection: "Commissioned",
       src: "/7AR01875.jpg",
       description: "Nope",
+      twin: "/L1120620.jpg",
     },
 
     {
@@ -172,6 +178,15 @@ const Images = () => {
       description: "Yes",
     },
   ];
+  //affichage aléatoire
+
+  const [map, setmap] = useState(
+    imagesData.sort((a, b) => 0.5 - Math.random())
+  );
+
+  useEffect(() => {
+    setmap(imagesData);
+  }, []);
 
   /// fonction pour gérer le hover ///
   const hover = (i) => {
@@ -186,9 +201,18 @@ const Images = () => {
 
   return (
     <>
-      {imagesData.map((data, i) => (
+      {map.map((data, i) => (
         <div className={styles.picContainer}>
-          <Link href="/slider">
+          <div
+            className={
+              hovered === "" || hovered === i
+                ? styles.albumNameContainer
+                : styles.albumNameContainerHidden
+            }
+          >
+            <div className={styles.albumNameText}>{hoveredCollection}</div>
+          </div>
+          <>
             <img
               key={i}
               onMouseEnter={() =>
@@ -200,25 +224,30 @@ const Images = () => {
                 })
               }
               onMouseLeave={() =>
-                hover({ image: "", collection: "", description: "", year: "" })
+                hover({
+                  hovered: "",
+                  collection: "",
+                  description: "",
+                  year: "",
+                })
               }
               onClick={() => {
-                // voir la photo qui est cliquée //
-                //console.log(data);
-                /// Envoie le tableau avec toute la collection
                 const keyword = data.collection;
                 const searchResult = imagesData.filter(
                   (word) => word.collection.indexOf(keyword) > -1
                 );
                 sendAlbumData(searchResult);
-                console.log(albumData);
+                //console.log(albumData);
+                {
+                  props.scroll();
+                }
               }}
               src={data.src}
               description={data.description}
               collection={data.collection}
               className={styles.pic}
             />
-          </Link>
+          </>
         </div>
       ))}
     </>

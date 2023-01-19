@@ -4,9 +4,11 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import hoverDisplay from "../reducers/hoverDisplay";
 import albumGenerator from "../reducers/albumGenerator";
+import imageFocus from "../reducers/imageFocus";
+import getIndex from "../reducers/getIndex";
 
 const store = configureStore({
-  reducer: { hoverDisplay, albumGenerator },
+  reducer: { hoverDisplay, albumGenerator, imageFocus, getIndex },
 });
 
 function MyApp({ Component, pageProps }) {

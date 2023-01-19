@@ -1,0 +1,76 @@
+.mainContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vmin;
+  margin: 0px;
+}
+
+.previousContainer {
+  position: absolute;
+  cursor: url(../public/left.svg), auto;
+  background-color: transparent;
+  height: 100vh;
+  width: 50%;
+  z-index: 3;
+  left: 0;
+}
+
+.nextContainer {
+  position: absolute;
+  cursor: url(../public/right.svg), auto;
+  height: 100vh;
+  background-color: transparent;
+
+  width: 50%;
+  left: 50%;
+  z-index: 3;
+}
+
+.firstPicContainer {
+  width: 65vh;
+  position: relative;
+}
+
+.secondPicContainer {
+  width: 65vh;
+  position: relative;
+}
+
+.secondPicContainerHidden {
+  width: 65vh;
+  position: relative;
+  display: none;
+}
+
+.firstPic {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.secondPic {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.title {
+  font-family: "FreeSansBold";
+  font-size: 20px;
+  cursor: pointer;
+}
+.titleContainer {
+  position: absolute;
+  z-index: 4;
+}
+
+.index {
+  position: absolute;
+  font-family: "FreeSansBold";
+  font-size: 35px;
+  left: 90%;
+  top: 92%;
+}

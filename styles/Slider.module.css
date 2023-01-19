@@ -5,7 +5,7 @@
 .title {
   font-family: "FreeSansBold";
   font-size: 20px;
-  text-decoration: none;
+  cursor: pointer;
 }
 .titleContainer {
   display: flex;
