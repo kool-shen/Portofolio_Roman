@@ -105,7 +105,7 @@ function Content() {
             }}
             className={styles.romanContainer}
           >
-            <div className={styles.text}>Roman</div>
+            <div className={styles.roman}>Roman</div>
             <div className={styles.cadre}>Cadre</div>
           </div>
           <div
