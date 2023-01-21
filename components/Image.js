@@ -31,7 +31,12 @@ const Images = (props) => {
       src: "/LGTDB/Grand_Tour_de_Bretagne00002.jpg",
       description: "Yes",
       year: 2021,
-      twin: "LGTDB/Grand_Tour_de_Bretagne00003.jpg",
+    },
+    {
+      collection: "Le Grand Tour de Bretagne",
+      src: "/LGTDB/Grand_Tour_de_Bretagne00003.jpg",
+      description: "Yes",
+      year: 2021,
     },
     {
       collection: "Le Grand Tour de Bretagne",
@@ -107,7 +112,12 @@ const Images = (props) => {
       src: "/LGTDB/Grand_Tour_de_Bretagne00015.jpg",
       description: "Yes",
       year: 2021,
-      twin: "LGTDB/Grand_Tour_de_Bretagne00016.jpg",
+    },
+    {
+      collection: "Le Grand Tour de Bretagne",
+      src: "/LGTDB/Grand_Tour_de_Bretagne00016.jpg",
+      description: "Yes",
+      year: 2021,
     },
     {
       collection: "Le Grand Tour de Bretagne",
@@ -132,7 +142,7 @@ const Images = (props) => {
       src: "/LGTDB/Grand_Tour_de_Bretagne00020.jpg",
       description: "Yes",
       year: 2021,
-      twin: "LGTDB/Grand_Tour_de_Bretagne00021.jpg",
+      twin: "/LGTDB/Grand_Tour_de_Bretagne00021.jpg",
     },
     {
       collection: "Le Grand Tour de Bretagne",
@@ -216,7 +226,6 @@ const Images = (props) => {
       src: "/LGTDB/Grand_Tour_de_Bretagne00033.jpg",
       description: "Yes",
       year: 2021,
-      twin: "/LGTDB/Grand_Tour_de_Bretagne00034.jpg",
     },
     {
       collection: "Le Grand Tour de Bretagne",

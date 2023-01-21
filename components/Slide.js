@@ -1,19 +1,11 @@
 import React from "react";
 import styles from "../styles/Slide.module.css";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { clear } from "../reducers/albumGenerator";
-import { getIndexInfo } from "../reducers/getIndex";
-import next from "next";
+import { useSelector } from "react-redux";
 
 export default function Slide() {
-  const dispatch = useDispatch();
-
-  /// Value du reducer getIndex
-  const index = useSelector((state) => state.getIndex.value);
-
-  /// Value du reducer hoverDisplay
-  const hovered = useSelector((state) => state.hoverDisplay.value);
+  // Value du reducer slideReducer ///
+  const slideData = useSelector((state) => state.slideReducer.value);
 
   /// value du reducer AlbumGenerator ////
 
@@ -27,15 +19,21 @@ export default function Slide() {
     return true;
   });
 
-  const [currentIndex, setcurrentIndex] = useState(hovered.image);
+  //// index en fonction de la photo cliquée ///
 
-  /// focntions Next & Previous ///
+  const clickedPhoto = albumData[slideData].src;
+  const indexFilter = filteredImagesData.findIndex(
+    (item) => item.src === clickedPhoto || item.twin === clickedPhoto
+  );
+
+  const [currentIndex, setcurrentIndex] = useState(indexFilter);
+
+  /// fonctions Next & Previous ///
 
   function goToNext() {
     const isLastSlide = currentIndex === filteredImagesData.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setcurrentIndex(newIndex);
-    console.log(currentIndex, index);
   }
 
   function goToPrevious() {
@@ -46,10 +44,6 @@ export default function Slide() {
     setcurrentIndex(newIndex);
     console.log(currentIndex, index);
   }
-
-  /*const addIndex = () => {
-    dispatch(getIndexInfo(currentIndex + 1));
-  };*/
 
   let twinExists = filteredImagesData[currentIndex].hasOwnProperty("twin");
 

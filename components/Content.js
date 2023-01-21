@@ -8,6 +8,7 @@ import React from "react";
 import { clear } from "../reducers/albumGenerator";
 import { isClicked } from "../reducers/imageFocus";
 import Link from "next/link";
+import { clearSlideData } from "../reducers/slideReducer";
 
 function Content() {
   // Value du reducer albumGenerator
@@ -87,10 +88,14 @@ function Content() {
     color: "inherit",
   };
 
-  /// Virer le slider ////
+  /// Virer le slider et le vider////
 
   const backToAlbum = () => {
     dispatch(isClicked(false));
+  };
+
+  const clearSlide = (data) => {
+    dispatch(clearSlideData(data));
   };
 
   return (
@@ -101,6 +106,7 @@ function Content() {
             onClick={() => {
               clearStore();
               backToAlbum();
+              clearSlide();
               scrollToTop();
             }}
             className={styles.romanContainer}
@@ -112,6 +118,7 @@ function Content() {
             className={retourStyle}
             onClick={() => {
               backToAlbum();
+              clearSlide();
             }}
           >
             RETOUR

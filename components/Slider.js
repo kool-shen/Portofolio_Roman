@@ -1,89 +1,79 @@
-import React, { useState } from "react";
-import styles from "../styles/Slider.module.css";
+import React from "react";
+import styles from "../styles/Slide.module.css";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isClicked } from "../reducers/imageFocus";
 import { clear } from "../reducers/albumGenerator";
+import next from "next";
 
-export default function Slider() {
+export default function Slide() {
+  const dispatch = useDispatch();
+
+  // Value du reducer slideReducer ///
+  const slideData = useSelector((state) => state.slideReducer.value);
+
+  /// Value du reducer hoverDisplay
+  const hovered = useSelector((state) => state.hoverDisplay.value);
+
+  /// value du reducer AlbumGenerator ////
+
   const albumData = useSelector((state) => state.albumGenerator.value);
 
-  // fonction pour revenir à l'album
+  const [currentIndex, setcurrentIndex] = useState(hovered.image);
 
-  const backToAlbum = () => {
-    dispatch(isClicked(true));
-  };
-
-  const containerStyle = {
-    width: "500px",
-    height: "700px",
-    margin: "0 auto",
-  };
-
-  const [currentIndex, setcurrentIndex] = useState(0);
-
-  function goToPrevious() {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? albumData.length - 1 : currentIndex - 1;
-    setcurrentIndex(newIndex);
-  }
+  /// focntions Next & Previous ///
 
   function goToNext() {
-    const isLastSlide = currentIndex === albumData.length - 1;
+    const isLastSlide = currentIndex === slideData.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setcurrentIndex(newIndex);
   }
 
-  function Slider({ slides }) {
-    const dispatch = useDispatch();
-
-    const clearCollection = () => {
-      dispatch(clear());
-    };
-
-    //// STYLES //////
-
-    const slideStyles = {
-      width: "100%",
-      height: "100%",
-      backgroundPosition: "center",
-      backgroundSize: "cover",
-      backgroundImage: `url(${slides[currentIndex].src})`,
-    };
-
-    const removeLinkStyle = {
-      textDecoration: "none",
-      color: "inherit",
-    };
-
-    //// ONCLICK FUNCTIONS ////
-
-    return (
-      <div className={styles.sliderStyles}>
-        <div className={styles.titleContainer}>
-          <div
-            onClick={() => {
-              clearCollection();
-            }}
-          >
-            <div className={styles.title}>RETOUR</div>
-          </div>
-          <div className={styles.counter}>
-            {currentIndex + 1}/ {albumData.length}
-          </div>
-        </div>
-        <div style={slideStyles}></div>
-      </div>
-    );
+  function goToPrevious() {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slideData.length - 1 : currentIndex - 1;
+    setcurrentIndex(newIndex);
   }
 
-  return (
-    <div className={styles.mainContainer}>
-      <div className={styles.previousContainer} onClick={goToPrevious}></div>
-      <div className={styles.nextContainer} onClick={goToNext}></div>
+  let twinExists = slideData.hasOwnProperty("twin");
 
-      <div style={containerStyle}>
-        <Slider slides={albumData} />
+  /// map ///
+
+  return (
+    <>
+      <div className={styles.index}>
+        {currentIndex + 1}/ {slideData.length}
       </div>
-    </div>
+      <div className={styles.mainContainer}>
+        <div
+          className={styles.previousContainer}
+          onClick={() => {
+            goToPrevious();
+            /*addIndex();*/
+          }}
+        ></div>
+        <div
+          className={styles.nextContainer}
+          onClick={() => {
+            goToNext();
+            /*addIndex();*/
+          }}
+        ></div>
+        <div className={styles.firstPicContainer}>
+          <img src={slideData[currentIndex].src} className={styles.firstPic} />
+        </div>
+        <div
+          className={
+            twinExists
+              ? styles.secondPicContainer
+              : styles.secondPicContainerHidden
+          }
+        >
+          <img
+            src={slideData[currentIndex].twin}
+            className={styles.secondPic}
+          />
+        </div>
+      </div>
+    </>
   );
 }

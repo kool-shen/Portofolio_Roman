@@ -2,15 +2,14 @@ import styles from "../styles/AutoImages.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { display } from "../reducers/hoverDisplay";
 import { isClicked } from "../reducers/imageFocus";
-import { getIndexInfo } from "../reducers/getIndex";
+import { generate } from "../reducers/albumGenerator";
+import { getSlideData } from "../reducers/slideReducer";
 
 const AutoImages = () => {
   const dispatch = useDispatch();
 
-  /// Value du reducer getIndex
-  const index = useSelector((state) => state.getIndex.value);
-  /// Value du reducer hoverDisplay
-  const hovered = useSelector((state) => state.hoverDisplay.value);
+  /// Value du reducer slideReducer
+  const slideData = useSelector((state) => state.slideReducer.value);
 
   /// value du reducer AlbumGenerator ////
   const albumData = useSelector((state) => state.albumGenerator.value);
@@ -21,19 +20,19 @@ const AutoImages = () => {
   /// fonction pour gérer le hover ///
   const hover = (i) => {
     dispatch(display(i));
-    console.log(albumData);
+    //console.log(albumData);
   };
 
-  // fonction pour gérer le slider
+  /// fonction pour lancer slider ///
 
   const imageIsClicked = () => {
     dispatch(isClicked(true));
   };
 
-  /// fonction pour envoyer le bon index ///
+  /// fonction pour filtrer albumData et envoyer la bonne sélection dans le Slider ///
 
-  const addIndex = () => {
-    dispatch(getIndexInfo(hovered.image + 1));
+  const sendSlideData = (data) => {
+    dispatch(getSlideData(data));
   };
 
   return (
@@ -56,8 +55,10 @@ const AutoImages = () => {
               }
               onClick={() => {
                 imageIsClicked();
-                addIndex();
-                console.log(albumData);
+
+                sendSlideData(i);
+
+                console.log(slideData);
               }}
               src={data.src}
               description={data.description}

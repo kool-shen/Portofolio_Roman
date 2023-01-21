@@ -66,6 +66,7 @@
 .albumNameText {
   font-family: "FreeSansBold";
   color: white;
+  font-size: 90%;
 }
 
 .hiddenText {

@@ -5,10 +5,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import hoverDisplay from "../reducers/hoverDisplay";
 import albumGenerator from "../reducers/albumGenerator";
 import imageFocus from "../reducers/imageFocus";
-import getIndex from "../reducers/getIndex";
-
+import slideReducer from "../reducers/slideReducer";
 const store = configureStore({
-  reducer: { hoverDisplay, albumGenerator, imageFocus, getIndex },
+  reducer: { hoverDisplay, albumGenerator, imageFocus, slideReducer },
 });
 
 function MyApp({ Component, pageProps }) {
