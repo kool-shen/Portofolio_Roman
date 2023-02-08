@@ -4,6 +4,7 @@ import { display } from "../reducers/hoverDisplay";
 import { generate } from "../reducers/albumGenerator";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import LazyLoad from "react-lazyload";
 
 const Images = (props) => {
   const dispatch = useDispatch();
@@ -238,78 +239,78 @@ const Images = (props) => {
 
     {
       collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00001.jpg",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00001.jpg",
       description: "Yes",
       year: 2020,
-      twin: "Le_Corbusier/Le_Corbusier_Boulogne00002.jpg",
+      twin: "/Le_Corbusier/Le_Corbusier_Boulogne00002.jpg",
     },
     {
       collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00002.jpg",
-      description: "Yes",
-      year: 2020,
-    },
-    {
-      collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00003.jpg",
-      description: "Yes",
-      year: 2020,
-      twin: "Le_Corbusier/Le_Corbusier_Boulogne00004.jpg",
-    },
-    {
-      collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00004.jpg",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00002.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00005.jpg",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00003.jpg",
       description: "Yes",
       year: 2020,
-      twin: "Le_Corbusier/Le_Corbusier_Boulogne00006.jpg",
+      twin: "/Le_Corbusier/Le_Corbusier_Boulogne00004.jpg",
     },
     {
       collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00006.jpg",
-      description: "Yes",
-      year: 2020,
-    },
-    {
-      collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00007.jpg",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00004.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00008.jpg",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00005.jpg",
       description: "Yes",
       year: 2020,
-      twin: "Le_Corbusier/Le_Corbusier_Boulogne00009.jpg",
+      twin: "/Le_Corbusier/Le_Corbusier_Boulogne00006.jpg",
     },
     {
       collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00009.jpg",
-      description: "Yes",
-      year: 2020,
-      twin: "Le_Corbusier/Le_Corbusier_Boulogne00010.jpg",
-    },
-    {
-      collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00010.jpg",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00006.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00011.jpg",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00007.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Le Corbusier",
-      src: "Le_Corbusier/Le_Corbusier_Boulogne00012.jpg",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00008.jpg",
+      description: "Yes",
+      year: 2020,
+      twin: "/Le_Corbusier/Le_Corbusier_Boulogne00009.jpg",
+    },
+    {
+      collection: "Le Corbusier",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00009.jpg",
+      description: "Yes",
+      year: 2020,
+      twin: "/Le_Corbusier/Le_Corbusier_Boulogne00010.jpg",
+    },
+    {
+      collection: "Le Corbusier",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00010.jpg",
+      description: "Yes",
+      year: 2020,
+    },
+    {
+      collection: "Le Corbusier",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00011.jpg",
+      description: "Yes",
+      year: 2020,
+    },
+    {
+      collection: "Le Corbusier",
+      src: "/Le_Corbusier/Le_Corbusier_Boulogne00012.jpg",
       description: "Yes",
       year: 2020,
     },
@@ -317,109 +318,109 @@ const Images = (props) => {
     /// Roland Schweitzer ///
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00001.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00001.jpg",
       description: "Yes",
       year: 2020,
-      twin: "Roland_Schweitzer/Roland_Schweitzer00002.jpg",
+      twin: "/Roland_Schweitzer/Roland_Schweitzer00002.jpg",
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00002.jpg",
-      description: "Yes",
-      year: 2020,
-    },
-    {
-      collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00003.jpg",
-      description: "Yes",
-      year: 2020,
-      twin: "Roland_Schweitzer/Roland_Schweitzer00004.jpg",
-    },
-    {
-      collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00004.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00002.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00005.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00003.jpg",
+      description: "Yes",
+      year: 2020,
+      twin: "/Roland_Schweitzer/Roland_Schweitzer00004.jpg",
+    },
+    {
+      collection: "Roland Schweitzer",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00004.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00006.jpg",
-      description: "Yes",
-      year: 2020,
-      twin: "Roland_Schweitzer/Roland_Schweitzer00007.jpg",
-    },
-    {
-      collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00007.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00005.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00008.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00006.jpg",
+      description: "Yes",
+      year: 2020,
+      twin: "/Roland_Schweitzer/Roland_Schweitzer00007.jpg",
+    },
+    {
+      collection: "Roland Schweitzer",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00007.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00009.jpg",
-      description: "Yes",
-      year: 2020,
-      twin: "Roland_Schweitzer/Roland_Schweitzer00010.jpg",
-    },
-    {
-      collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00010.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00008.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00011.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00009.jpg",
       description: "Yes",
       year: 2020,
-      twin: "Roland_Schweitzer/Roland_Schweitzer00012.jpg",
+      twin: "/Roland_Schweitzer/Roland_Schweitzer00010.jpg",
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00012.jpg",
-      description: "Yes",
-      year: 2020,
-    },
-    {
-      collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00013.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00010.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00014.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00011.jpg",
+      description: "Yes",
+      year: 2020,
+      twin: "/Roland_Schweitzer/Roland_Schweitzer00012.jpg",
+    },
+    {
+      collection: "Roland Schweitzer",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00012.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00015.jpg",
-      description: "Yes",
-      year: 2020,
-      twin: "Roland_Schweitzer/Roland_Schweitzer00016.jpg",
-    },
-    {
-      collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00016.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00013.jpg",
       description: "Yes",
       year: 2020,
     },
     {
       collection: "Roland Schweitzer",
-      src: "Roland_Schweitzer/Roland_Schweitzer00017.jpg",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00014.jpg",
+      description: "Yes",
+      year: 2020,
+    },
+    {
+      collection: "Roland Schweitzer",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00015.jpg",
+      description: "Yes",
+      year: 2020,
+      twin: "/Roland_Schweitzer/Roland_Schweitzer00016.jpg",
+    },
+    {
+      collection: "Roland Schweitzer",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00016.jpg",
+      description: "Yes",
+      year: 2020,
+    },
+    {
+      collection: "Roland Schweitzer",
+      src: "/Roland_Schweitzer/Roland_Schweitzer00017.jpg",
       description: "Yes",
       year: 2020,
     },
@@ -448,7 +449,11 @@ const Images = (props) => {
   return (
     <>
       {map.map((data, i) => (
-        <div className={styles.picContainer}>
+        <LazyLoad
+          offset={200}
+          className={styles.picContainer}
+          style={{ width: "250px", position: "relative" }}
+        >
           <div
             className={
               hovered === "" || hovered === i
@@ -468,6 +473,7 @@ const Images = (props) => {
             ></div>
             <img
               key={i}
+              className={styles.pic}
               onMouseEnter={() =>
                 hover({
                   image: i,
@@ -499,10 +505,9 @@ const Images = (props) => {
               src={data.src}
               description={data.description}
               collection={data.collection}
-              className={styles.pic}
             />
           </>
-        </div>
+        </LazyLoad>
       ))}
     </>
   );

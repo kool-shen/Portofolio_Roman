@@ -1,4 +1,18 @@
-.text {
+.title {
   font-family: "FreeSansBold";
   font-size: 70px;
+}
+
+.textContainer {
+  width: 30%;
+}
+.text {
+  font-family: "FreeSans";
+  font-size: 17px;
+  padding: 10px;
+}
+
+.plus {
+  font-family: "FreeSansLight";
+  font-size: 40px;
 }

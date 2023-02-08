@@ -1,75 +1,98 @@
 import React from "react";
-import styles from "../styles/Slide.module.css";
+import styles from "../styles/Slider.module.css";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { clear } from "../reducers/albumGenerator";
-import next from "next";
+import { useSelector } from "react-redux";
 
-export default function Slide() {
-  const dispatch = useDispatch();
-
+export default function Slider() {
   // Value du reducer slideReducer ///
   const slideData = useSelector((state) => state.slideReducer.value);
-
-  /// Value du reducer hoverDisplay
-  const hovered = useSelector((state) => state.hoverDisplay.value);
 
   /// value du reducer AlbumGenerator ////
 
   const albumData = useSelector((state) => state.albumGenerator.value);
 
-  const [currentIndex, setcurrentIndex] = useState(hovered.image);
+  /// Split albumData en 2 tableaux d'objet ///
 
-  /// focntions Next & Previous ///
+  const albumDataLeft = albumData.filter((_, i) => i % 2 === 0);
+  const albumDataRight = albumData.filter((_, i) => i % 2 !== 0);
+
+  //// index en fonction de la photo cliquée ///
+
+  const clickedPhoto = albumData[slideData].src;
+  let indexFilter = albumData.findIndex((item) => item.src === clickedPhoto);
+
+  const [currentIndex, setcurrentIndex] = useState(
+    indexFilter % 2 === 0 ? indexFilter / 2 : (indexFilter + 1) / 2
+  );
+  const [currentIndex2, setcurrentIndex2] = useState(
+    indexFilter % 2 === 0 ? indexFilter / 2 : (indexFilter - 1) / 2
+  );
+
+  /// fonctions Next & Previous ///
 
   function goToNext() {
-    const isLastSlide = currentIndex === slideData.length - 1;
+    const isLastSlide = currentIndex === albumDataLeft.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setcurrentIndex(newIndex);
+    console.log(albumDataLeft);
   }
 
   function goToPrevious() {
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slideData.length - 1 : currentIndex - 1;
+    const newIndex = isFirstSlide ? albumDataLeft.length - 1 : currentIndex - 1;
     setcurrentIndex(newIndex);
   }
 
-  let twinExists = slideData.hasOwnProperty("twin");
+  function goToNext2() {
+    const isLastSlide = currentIndex2 === albumDataRight.length - 1;
+    const newIndex2 = isLastSlide ? 0 : currentIndex2 + 1;
+    setcurrentIndex2(newIndex2);
+  }
 
-  /// map ///
+  function goToPrevious2() {
+    const isFirstSlide = currentIndex2 === 0;
+    const newIndex2 = isFirstSlide
+      ? albumDataRight.length - 1
+      : currentIndex2 - 1;
+    setcurrentIndex2(newIndex2);
+  }
 
   return (
     <>
-      <div className={styles.index}>
-        {currentIndex + 1}/ {slideData.length}
-      </div>
       <div className={styles.mainContainer}>
-        <div
-          className={styles.previousContainer}
-          onClick={() => {
-            goToPrevious();
-            /*addIndex();*/
-          }}
-        ></div>
-        <div
-          className={styles.nextContainer}
-          onClick={() => {
-            goToNext();
-            /*addIndex();*/
-          }}
-        ></div>
         <div className={styles.firstPicContainer}>
-          <img src={slideData[currentIndex].src} className={styles.firstPic} />
-        </div>
-        <div
-          className={
-            twinExists
-              ? styles.secondPicContainer
-              : styles.secondPicContainerHidden
-          }
-        >
+          <div
+            className={styles.previousContainer}
+            onClick={() => {
+              goToPrevious();
+            }}
+          ></div>
+          <div
+            className={styles.nextContainer}
+            onClick={() => {
+              goToNext();
+            }}
+          ></div>
           <img
-            src={slideData[currentIndex].twin}
+            src={albumDataLeft[currentIndex].src}
+            className={styles.firstPic}
+          />
+        </div>
+        <div className={styles.secondPicContainer}>
+          <div
+            className={styles.previousContainer}
+            onClick={() => {
+              goToPrevious2();
+            }}
+          ></div>
+          <div
+            className={styles.nextContainer}
+            onClick={() => {
+              goToNext2();
+            }}
+          ></div>
+          <img
+            src={albumDataRight[currentIndex2].src}
             className={styles.secondPic}
           />
         </div>

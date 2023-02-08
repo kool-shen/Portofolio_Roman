@@ -1,5 +1,70 @@
-.counter {
-  font-family: "FreeSansBold";
+.mainContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vmin;
+  margin: 0px;
+}
+
+.previousContainer {
+  position: absolute;
+  cursor: url(../public/left.svg), auto;
+  background-color: transparent;
+  height: 100%;
+  width: 50%;
+  z-index: 3;
+}
+
+.nextContainer {
+  position: absolute;
+  cursor: url(../public/right.svg), auto;
+  height: 100vh;
+  background-color: transparent;
+  height: 100%;
+  width: 50%;
+  left: 50%;
+  z-index: 3;
+}
+
+.firstPicContainer {
+  display: block;
+  width: 65vh;
+  position: relative;
+}
+.firstPicContainerHidden {
+  display: none;
+  width: 65vh;
+  position: relative;
+}
+
+.secondPicContainer {
+  width: 65vh;
+  position: relative;
+}
+
+.secondPicContainerHidden {
+  width: 65vh;
+  position: relative;
+  display: none;
+}
+
+.firstPic {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.firstPicHidden {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+.secondPic {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .title {
@@ -8,31 +73,14 @@
   cursor: pointer;
 }
 .titleContainer {
-  display: flex;
-  justify-content: space-between;
-}
-
-.sliderStyles {
-  height: 100%;
-  position: relative;
-}
-
-.previousContainer {
   position: absolute;
-  cursor: url(../public/left.svg), auto;
-
-  top: 4vh;
-  height: 100vh;
-  width: 50%;
-  z-index: 7;
+  z-index: 4;
 }
 
-.nextContainer {
+.index {
   position: absolute;
-  cursor: url(../public/right.svg), auto;
-  height: 100vh;
-  top: 4vh;
-  width: 50%;
-  left: 50%;
-  z-index: 7;
+  font-family: "FreeSansBold";
+  font-size: 35px;
+  left: 90%;
+  top: 92%;
 }

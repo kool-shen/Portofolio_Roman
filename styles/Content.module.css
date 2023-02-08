@@ -76,7 +76,11 @@
   align-items: center;
   gap: 5vmin;
   flex-wrap: wrap;
-  overflow-y: scroll;
+  overflow: scroll;
+}
+
+.contentContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .slideContainer {
@@ -104,6 +108,7 @@
   flex-direction: column;
   width: 53px;
   z-index: 8;
+  cursor: pointer;
 }
 
 .roman {

@@ -2,6 +2,7 @@ import styles from "../styles/Content.module.css";
 import Images from "../components/Image";
 import AutoImages from "./AutoImages";
 import Slide from "./Slide";
+import Slider from "./Slider";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import React from "react";
@@ -51,7 +52,7 @@ function Content() {
   if (albumData.length > 0 && !focusData) {
     display = <AutoImages />;
   } else if (slideExists) {
-    display = <Slide />;
+    display = <Slider />;
   } else {
     display = <Images scroll={() => scrollToTop()} />;
   }
@@ -130,13 +131,9 @@ function Content() {
           </Link>
           <div className={yearStyle}>{hoveredYear}</div>
           <div className={collectionStyle}> {albumData[0]?.collection}</div>
-          <Link
-            style={removeLinkStyle}
-            href="/indexAlbum"
-            className={indexStyle}
-          >
+          <div style={removeLinkStyle} className={indexStyle}>
             INDEX
-          </Link>
+          </div>
         </div>
         <div className={photoContainerStyle} ref={divRef}>
           {display}

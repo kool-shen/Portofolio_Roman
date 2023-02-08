@@ -4,6 +4,7 @@ import { display } from "../reducers/hoverDisplay";
 import { isClicked } from "../reducers/imageFocus";
 import { generate } from "../reducers/albumGenerator";
 import { getSlideData } from "../reducers/slideReducer";
+import LazyLoad from "react-lazyload";
 
 const AutoImages = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const AutoImages = () => {
   return (
     <>
       {albumData.map((data, i) => (
-        <div className={styles.picContainer}>
+        <LazyLoad offset={200} className={styles.picContainer}>
           <>
             <img
               key={i}
@@ -66,7 +67,7 @@ const AutoImages = () => {
               className={styles.pic}
             />
           </>
-        </div>
+        </LazyLoad>
       ))}
     </>
   );

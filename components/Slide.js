@@ -42,7 +42,7 @@ export default function Slide() {
       ? filteredImagesData.length - 1
       : currentIndex - 1;
     setcurrentIndex(newIndex);
-    console.log(currentIndex, index);
+    console.log(currentIndex);
   }
 
   let twinExists = filteredImagesData[currentIndex].hasOwnProperty("twin");

@@ -6,8 +6,15 @@ import hoverDisplay from "../reducers/hoverDisplay";
 import albumGenerator from "../reducers/albumGenerator";
 import imageFocus from "../reducers/imageFocus";
 import slideReducer from "../reducers/slideReducer";
+import sendAlbumIndex from "../reducers/sendAlbumIndex";
 const store = configureStore({
-  reducer: { hoverDisplay, albumGenerator, imageFocus, slideReducer },
+  reducer: {
+    hoverDisplay,
+    albumGenerator,
+    imageFocus,
+    slideReducer,
+    sendAlbumIndex,
+  },
 });
 
 function MyApp({ Component, pageProps }) {
