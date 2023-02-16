@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: { image: "", collection: "", description: "", year: "" },
+  value: { image: "", collection: "" },
 };
 
 export const hoverSlice = createSlice({
@@ -13,8 +13,6 @@ export const hoverSlice = createSlice({
       //console.log(state.value.image);
       state.value.image = action.payload.image;
       state.value.collection = action.payload.collection;
-      state.value.description = action.payload.description;
-      state.value.year = action.payload.year;
     },
   },
 });

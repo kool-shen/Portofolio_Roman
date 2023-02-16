@@ -1,47 +1,38 @@
+import React, { useState, useEffect } from "react";
 import styles from "../styles/Album.module.css";
-import AutoImages from "../components/AutoImages";
-import { useDispatch, useSelector } from "react-redux";
-import { generate } from "../reducers/albumGenerator";
-import Link from "next/link";
 
-import React from "react";
+const Album = () => {
+  const [photos, setPhotos] = useState([]);
 
-function Album() {
-  const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://res.cloudinary.com/dsfqldje9/image/list/Roman%20portofolio.json"
+        );
+        const data = await response.json();
+        setPhotos(data.resources);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-  /// value du reducer hoverDisplay
-  const hoveredDescription = useSelector(
-    (state) => state.hoverDisplay.value.description
-  );
-
-  /// value du reducer AlbumGenerator ////
-  const albumTitle = useSelector((state) => state.albumGenerator.value);
-
-  ////
-
-  const removeLinkStyle = {
-    textDecoration: "none",
-    color: "inherit",
-  };
+    fetchData();
+  }, []);
 
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.leftContainer}>
-        <Link href="/" style={removeLinkStyle}>
-          <div className={styles.text}>Roman Cadre</div>
-        </Link>
-        <div className={styles.descriptionContainer}>
-          <div className={styles.text}> {hoveredDescription} </div>
-        </div>
-      </div>
-      <div className={styles.rightContainer}>
-        <div className={styles.about}>{albumTitle[0].collection}</div>
-      </div>
-      <div className={styles.contentContainer}>
-        <AutoImages />
+    <div className={styles.container}>
+      <div className={styles.picContainer}>
+        {photos.map((photo) => (
+          <img
+            key={photo.public_id}
+            className={styles.pic}
+            src={`https://res.cloudinary.com/dsfqldje9/image/upload/${photo.public_id}.jpg`}
+          />
+        ))}
       </div>
     </div>
   );
-}
+};
 
 export default Album;
