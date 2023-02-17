@@ -1,12 +1,13 @@
 .picContainer {
-  width: 50px;
+  width: 250px;
   position: relative;
 }
 
 .pic {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .container {

@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { display } from "../reducers/hoverDisplay";
 import { generate } from "../reducers/albumGenerator";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Images = (props) => {
   const dispatch = useDispatch();
-  //const hoveredImage = useSelector((state) => state.hoverDisplay.value.image);
   const hoveredCollection = useSelector(
     (state) => state.hoverDisplay.value.collection
   );
@@ -14,8 +14,6 @@ const Images = (props) => {
 
   /// value du reducer AlbumGenerator ////
   const albumData = useSelector((state) => state.albumGenerator.value);
-
-  const [imagesData, setImagesData] = useState([]);
 
   const [randomizedImagesData, setRandomizedImagesData] = useState([]);
 
@@ -65,7 +63,7 @@ const Images = (props) => {
                   : styles.whiteDotHidden
               }
             ></div>
-            <img
+            <Image
               key={i}
               className={styles.pic}
               onMouseEnter={() =>
@@ -91,7 +89,6 @@ const Images = (props) => {
                 );
 
                 sendAlbumData(searchResult);
-                //console.log(albumData);
                 {
                   props.scroll();
                 }
@@ -99,6 +96,8 @@ const Images = (props) => {
               src={data.src}
               description={data.description}
               collection={data.collection}
+              width={data.width}
+              height={data.height}
             />
           </>
         </div>

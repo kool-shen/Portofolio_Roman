@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../styles/Slider.module.css";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import Image from "next/image";
 
 export default function Slider() {
   // Value du reducer slideReducer ///
@@ -73,8 +74,10 @@ export default function Slider() {
               goToNext();
             }}
           ></div>
-          <img
+          <Image
             src={albumDataLeft[currentIndex].src}
+            width={albumDataRight[currentIndex2].width}
+            height={albumDataRight[currentIndex2].height}
             className={styles.firstPic}
           />
         </div>
@@ -94,6 +97,8 @@ export default function Slider() {
           <img
             src={albumDataRight[currentIndex2].src}
             className={styles.secondPic}
+            width={albumDataRight[currentIndex2].width}
+            height={albumDataRight[currentIndex2].height}
           />
         </div>
       </div>

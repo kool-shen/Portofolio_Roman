@@ -1,35 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "../styles/Album.module.css";
+import Image from "next/image";
 
 const Album = () => {
-  const [photos, setPhotos] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://res.cloudinary.com/dsfqldje9/image/list/Roman%20portofolio.json"
-        );
-        const data = await response.json();
-        setPhotos(data.resources);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
     <div className={styles.container}>
       <div className={styles.picContainer}>
-        {photos.map((photo) => (
-          <img
-            key={photo.public_id}
-            className={styles.pic}
-            src={`https://res.cloudinary.com/dsfqldje9/image/upload/${photo.public_id}.jpg`}
-          />
-        ))}
+        <Image
+          src="http://res.cloudinary.com/df1kg1ibs/image/upload/v1676285629/Portofolio/Le%20Corbusier/Le_Corbusier_Boulogne00001_ux3z2h.jpg"
+          alt="Logo"
+          className={styles.pic}
+          width={1366}
+          height={2048}
+        />
       </div>
     </div>
   );

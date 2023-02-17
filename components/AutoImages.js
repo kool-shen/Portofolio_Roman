@@ -2,26 +2,19 @@ import styles from "../styles/AutoImages.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { display } from "../reducers/hoverDisplay";
 import { isClicked } from "../reducers/imageFocus";
-import { generate } from "../reducers/albumGenerator";
 import { getSlideData } from "../reducers/slideReducer";
 import LazyLoad from "react-lazyload";
+import Image from "next/image";
 
 const AutoImages = () => {
   const dispatch = useDispatch();
 
-  /// Value du reducer slideReducer
-  const slideData = useSelector((state) => state.slideReducer.value);
-
   /// value du reducer AlbumGenerator ////
   const albumData = useSelector((state) => state.albumGenerator.value);
-
-  /// value du reducer imageFocus ////
-  const focusData = useSelector((state) => state.imageFocus.value);
 
   /// fonction pour gérer le hover ///
   const hover = (i) => {
     dispatch(display(i));
-    //console.log(albumData);
   };
 
   /// fonction pour lancer slider ///
@@ -41,7 +34,7 @@ const AutoImages = () => {
       {albumData.map((data, i) => (
         <LazyLoad offset={200} className={styles.picContainer}>
           <>
-            <img
+            <Image
               key={i}
               onMouseEnter={() =>
                 hover({
@@ -59,9 +52,11 @@ const AutoImages = () => {
 
                 sendSlideData(i);
 
-                console.log(slideData);
+                console.log(albumData);
               }}
               src={data.src}
+              width={data.width}
+              height={data.height}
               description={data.description}
               collection={data.collection}
               className={styles.pic}
