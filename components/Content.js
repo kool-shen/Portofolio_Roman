@@ -1,17 +1,19 @@
 import styles from "../styles/Content.module.css";
 import Images from "../components/Image";
 import AutoImages from "./AutoImages";
-import Slide from "./Slide";
 import Slider from "./Slider";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import React from "react";
+import Link from "next/link";
+/// import reducers
 import { clear } from "../reducers/albumGenerator";
 import { isClicked } from "../reducers/imageFocus";
-import Link from "next/link";
 import { clearSlideData } from "../reducers/slideReducer";
 
 function Content() {
+  // Value du reducer Loader
+
   // Value du reducer albumGenerator
 
   const albumData = useSelector((state) => state.albumGenerator.value);
@@ -21,13 +23,6 @@ function Content() {
 
   ///REDUCER HOVER
 
-  const dispatch = useDispatch();
-  const hoveredCollection = useSelector(
-    (state) => state.hoverDisplay.value.collection
-  );
-  const hoveredDescription = useSelector(
-    (state) => state.hoverDisplay.value.description
-  );
   const hoveredYear = useSelector((state) => state.hoverDisplay.value.year);
 
   /// Scroll Up à chaque render ///
@@ -56,6 +51,10 @@ function Content() {
   } else {
     display = <Images scroll={() => scrollToTop()} />;
   }
+
+  /// retour Home en cliquant sur Roman Cadre ///
+
+  const dispatch = useDispatch();
 
   const clearStore = (i) => {
     dispatch(clear(i));
@@ -131,9 +130,13 @@ function Content() {
           </Link>
           <div className={yearStyle}>{hoveredYear}</div>
           <div className={collectionStyle}> {albumData[0]?.collection}</div>
-          <div style={removeLinkStyle} className={indexStyle}>
+          <Link
+            href="/indexalbum"
+            style={removeLinkStyle}
+            className={indexStyle}
+          >
             INDEX
-          </div>
+          </Link>
         </div>
         <div className={photoContainerStyle} ref={divRef}>
           {display}

@@ -7,6 +7,7 @@ import albumGenerator from "../reducers/albumGenerator";
 import imageFocus from "../reducers/imageFocus";
 import slideReducer from "../reducers/slideReducer";
 import sendAlbumIndex from "../reducers/sendAlbumIndex";
+import loader from "../reducers/loader";
 const store = configureStore({
   reducer: {
     hoverDisplay,
@@ -14,6 +15,7 @@ const store = configureStore({
     imageFocus,
     slideReducer,
     sendAlbumIndex,
+    loader,
   },
 });
 

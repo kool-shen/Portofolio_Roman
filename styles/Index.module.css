@@ -1,4 +1,14 @@
-.text {
+.bigText {
   font-family: "FreeSansBold";
   font-size: 70px;
+}
+
+.indexText {
+  font-family: "FreeSans";
+  font-size: 30px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
