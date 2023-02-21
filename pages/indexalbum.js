@@ -2,7 +2,7 @@ import IndexAlbum from "../components/Index";
 import Loader from "../components/Loader";
 
 function indexAlbumPage() {
-  return <Loader />;
+  return <IndexAlbum />;
 }
 
 export default indexAlbumPage;

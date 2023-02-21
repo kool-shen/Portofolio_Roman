@@ -7,7 +7,7 @@ export default function IndexAlbum() {
   const [indexList, setIndexList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/cloudinary/album")
+    fetch("https://portofolio-roman-back-kool-shen.vercel.app/cloudinary/album")
       .then((response) => response.json())
       .then((resource) => {
         setIndexList(resource);
