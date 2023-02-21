@@ -1,20 +1,30 @@
-.picContainer {
-  width: 250px;
-  position: relative;
-}
-
-.pic {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.container {
+/* CONTAINERS */
+.contentContainer {
+  grid-column-start: 1;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 13;
+  background-color: transparent;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 120px;
+  padding-right: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5vmin;
   flex-wrap: wrap;
   overflow: scroll;
+}
+
+.picContainer {
+  width: 320px;
+}
+
+.pic {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
 }

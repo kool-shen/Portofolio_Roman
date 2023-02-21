@@ -15,9 +15,6 @@ const Images = (props) => {
   );
   const hovered = useSelector((state) => state.hoverDisplay.value.image);
 
-  /// value du reducer AlbumGenerator ////
-  const albumData = useSelector((state) => state.albumGenerator.value);
-
   const [randomizedImagesData, setRandomizedImagesData] = useState([]);
 
   const loadImage = async () => {

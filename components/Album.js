@@ -3,17 +3,37 @@ import styles from "../styles/Album.module.css";
 import Image from "next/image";
 
 const Album = () => {
+  const imagesData = [
+    {
+      collection: "Marseille",
+      src: "http://res.cloudinary.com/df1kg1ibs/image/upload/v1676984654/Portofolio/Marseille/marseille-10_cvv3wq.jpg",
+      height: 1429,
+      width: 2000,
+    },
+    {
+      collection: "Marseille",
+      src: "http://res.cloudinary.com/df1kg1ibs/image/upload/v1676984654/Portofolio/Marseille/marseille-9_osrfxd.jpg",
+      height: 2000,
+      width: 1429,
+    },
+  ];
+
   return (
-    <div className={styles.container}>
-      <div className={styles.picContainer}>
-        <Image
-          src="http://res.cloudinary.com/df1kg1ibs/image/upload/v1676285629/Portofolio/Le%20Corbusier/Le_Corbusier_Boulogne00001_ux3z2h.jpg"
-          alt="Logo"
-          className={styles.pic}
-          width={1366}
-          height={2048}
-        />
-      </div>
+    <div className={styles.contentContainer}>
+      {imagesData.map((data, i) => (
+        <div className={styles.picContainer}>
+          <>
+            <Image
+              key={i}
+              src={data.src}
+              width={data.width}
+              height={data.height}
+              collection={data.collection}
+              className={styles.pic}
+            />
+          </>
+        </div>
+      ))}
     </div>
   );
 };

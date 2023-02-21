@@ -33,21 +33,10 @@
   width: 65vh;
   position: relative;
 }
-.firstPicContainerHidden {
-  display: none;
-  width: 65vh;
-  position: relative;
-}
 
 .secondPicContainer {
   width: 65vh;
   position: relative;
-}
-
-.secondPicContainerHidden {
-  width: 65vh;
-  position: relative;
-  display: none;
 }
 
 .firstPic {
