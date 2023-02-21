@@ -21,18 +21,6 @@
   }
 }
 
-.hiddenPic {
-  height: auto;
-  width: auto;
-  max-width: 600px;
-  max-height: 600px;
-  padding-left: 7px;
-  padding-right: 7px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  opacity: 0;
-}
-
 /* TEXT */
 
 .text {

@@ -74,7 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5vmin;
+  gap: 50px;
   flex-wrap: wrap;
   overflow: scroll;
 }
@@ -91,16 +91,6 @@
   background-color: transparent;
 
   overflow: scroll;
-}
-
-.picContainer {
-  width: 250px;
-}
-
-.pic {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 .romanContainer {

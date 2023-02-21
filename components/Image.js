@@ -58,10 +58,7 @@ const Images = (props) => {
       {!imagesLoaded && <Loader />}
       {imagesLoaded &&
         randomizedImagesData.map((data, i) => (
-          <div
-            className={styles.picContainer}
-            style={{ width: "250px", position: "relative" }}
-          >
+          <div className={styles.picContainer}>
             <div
               className={
                 hovered === "" || hovered === i

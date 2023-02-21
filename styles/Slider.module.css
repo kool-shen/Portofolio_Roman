@@ -29,13 +29,20 @@
 }
 
 .firstPicContainer {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 65vh;
+  height: 90vh;
+  margin: 20px;
   position: relative;
 }
 
 .secondPicContainer {
+  display: flex;
+  flex-direction: column-reverse;
   width: 65vh;
+  height: 90vh;
+  margin: 20px;
   position: relative;
 }
 
