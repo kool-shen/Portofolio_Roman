@@ -81,7 +81,14 @@ export default function Slider() {
             className={styles.firstPic}
           />
         </div>
-        <div className={styles.secondPicContainer}>
+        <div
+          className={
+            albumDataRight[currentIndex2].width >
+            albumDataRight[currentIndex2].height
+              ? styles.secondPicContainerLarge
+              : styles.secondPicContainer
+          }
+        >
           <div
             className={styles.previousContainer}
             onClick={() => {

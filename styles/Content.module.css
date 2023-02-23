@@ -8,7 +8,7 @@
   width: 100%;
   position: fixed;
   margin: 0px;
-  cursor: url(../public/cross.png), auto;
+  cursor: url(../public/curseur_croix.png), auto;
 }
 
 .mainContainerHidden {
@@ -19,7 +19,7 @@
   width: 100%;
   position: fixed;
   margin: 0px;
-  cursor: url(../public/cross.png), auto;
+  cursor: url(../public/curseur_croix.png), auto;
   display: none;
 }
 

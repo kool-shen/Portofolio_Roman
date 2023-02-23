@@ -162,10 +162,7 @@ export default function Loader() {
           <img className={styles.cross} src={"cross.png"} />
           <img className={styles.cross} src={"cross.png"} />
         </div>
-        <img
-          className={styles.pic}
-          src={"LGTDB/Grand_Tour_de_Bretagne00008.jpg"}
-        />
+        <img className={styles.pic} src={"Maroc-47.jpg"} />
       </div>
       <div className={styles.text}>CHARGEMENT</div>
     </div>

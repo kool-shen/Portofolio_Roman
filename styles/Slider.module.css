@@ -10,7 +10,7 @@
 
 .previousContainer {
   position: absolute;
-  cursor: url(../public/left.svg), auto;
+  cursor: url(../public/gauche.png), auto;
   background-color: transparent;
   height: 100%;
   width: 50%;
@@ -19,7 +19,7 @@
 
 .nextContainer {
   position: absolute;
-  cursor: url(../public/right.svg), auto;
+  cursor: url(../public/droite.png), auto;
   height: 100vh;
   background-color: transparent;
   height: 100%;
@@ -38,6 +38,13 @@
 }
 
 .secondPicContainer {
+  width: 65vh;
+  height: 90vh;
+  margin: 20px;
+  position: relative;
+}
+
+.secondPicContainerLarge {
   display: flex;
   flex-direction: column-reverse;
   width: 65vh;
